@@ -1,0 +1,165 @@
+html{
+	width: 100%;
+	height: 100%;
+}
+body{
+	background:-webkit-linear-gradient(top right, #2F88FF, #51E8FF);
+	width: 100%;
+	color: #fff;
+	height: 100%;
+    background: -moz-linear-gradient(top right, #2F88FF, #51E8FF);
+    background: -webkit-gradient(linear, top right, #2F88FF, #51E8FF);
+    background: -o-linear-gradient(top right, #2F88FF, #51E8FF);
+    background: -ms-linear-gradient(top right, #2F88FF, #51E8FF);
+    background: linear-gradient(top right, #2F88FF, #51E8FF);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#51E8FF', endColorstr='#2F88FF',GradientType=1 ); 
+}
+
+.bg{
+	width: 600px;
+	height: 600px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -300px;
+	margin-top: -300px;
+}
+
+.logo{
+	width: 96px;
+	height: 96px;
+	margin-top: 270px;
+	float: left;
+	margin-left: 45px;
+}
+
+.logo img{
+	width: 96px;
+}
+
+.theme{
+	float: left;
+	margin-top: 310px;
+	margin-left: 16px;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: -0.57px;
+	text-align: left;
+	font-family:MicrosoftYaHei;
+	width: 130px;
+	height: 25px;
+}
+
+.line{
+	background-color: #fff;
+	border-radius: 100px;
+	width: 2px;
+	height: 120px;
+	opacity:0.8;
+	margin-top: 260px;
+	/*margin-left: 30px;*/
+	float: left;
+}
+
+.form{
+	width: 290px;
+	height: 200px;
+	margin-left: 20px;
+	margin-top: 255px;
+	float: left;
+}
+
+.box{
+	width: 290px;
+	height: 26px;
+	margin-top: -5px;
+}
+
+.account{
+	float: left;
+}
+
+.account img{
+	width: 17px;
+	height: 17px;
+}
+
+.account_error, .account_null{
+	font-size: 10px;
+	font-family:MicrosoftYaHei;
+	color: #fff;
+	letter-spacing: 0;
+	text-align: left;
+	margin-left: 10px;
+	padding-top: 3px;
+	float: left;
+}
+
+input{
+	float: left;
+	width: 150px;
+	height: 24px;
+	margin-left: 12px;
+	border-radius: 4px;
+	border: 1px #fff solid;
+	color: #1a7af0;
+	font-size: 10px;
+}
+
+.password{
+	float: left;
+}
+
+.password img{
+	width: 17px;
+	height: 17px;
+}
+
+.password_error, .password_null{
+	font-size: 10px;
+	font-family:MicrosoftYaHei;
+	color: #fff;
+	letter-spacing: 0;
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 3px;
+	float: left;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+	color:#a2d8ff;
+	text-align: left;
+	font-size: 10px;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color:#a2d8ff;
+	text-align: left;
+	font-size: 10px;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color:#a2d8ff;
+	text-align: left;
+	font-size: 10px;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color:#a2d8ff;
+	text-align: left;
+	font-size: 10px;
+}
+
+.login{
+	background-image: url('../Image/admin/person/login_original.png');
+	background-repeat: no-repeat;
+	width: 151px;
+	height: 25px;
+	margin-left: 27px;
+	float: left;
+	cursor: default;
+	font-size: 10px;
+	font-family: MicrosoftYaHei;
+	color: #fff;
+	letter-spacing: 30px;
+	padding-left: 40px;
+	padding-top: 2px;
+	border: none;
+}
