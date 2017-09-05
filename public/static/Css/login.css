@@ -147,7 +147,24 @@ input{
 	font-size: 10px;
 }
 
-.login{
+.login_before{
+	/*background-image: url('../Image/admin/person/login_original.png');*/
+	background-repeat: no-repeat;
+	width: 151px;
+	height: 25px;
+	margin-left: 27px;
+	float: left;
+	cursor: default;
+	font-size: 10px;
+	font-family: MicrosoftYaHei;
+	color: #fff;
+	letter-spacing: 30px;
+	padding-left: 40px;
+	padding-top: 2px;
+	border: none;
+}
+
+.login_after{
 	background-image: url('../Image/admin/person/login_original.png');
 	background-repeat: no-repeat;
 	width: 151px;

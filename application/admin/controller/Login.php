@@ -44,21 +44,10 @@ class Login extends Controller
                 if(!$workerInfo){
                     $data = array('code'=>2,'msg'=>'密码错误');
                 }else{
-                    $w_id = $workerInfo['w_id'];
-                    $redis = new \Kf_redis\Kf_redis();
-                    $redis = $redis->Kf_redis();
-                    $checkLogin = $redis->get('kqadmin_'.$w_id.'_status');
-                    if($checkLogin == 2){
-                        $data = array('code'=>3,'msg'=>'该账号已经登录');
-                    }else{
-                        $data = array('code'=>0,'msg'=>'success');
-                        $redis->set('kqadmin_'.$w_id.'_status','2');
-                        $redis->expire('kqadmin_'.$w_id.'_status',600);
-                        $this->loginSuccess($workerInfo);
-                    }
+                    $this->loginSuccess($workerInfo);
                 }
             }
-	    	return json_encode($data);
+	    	return json_encode(array('code'=>0,'msg'=>$workerInfo));
     	}else{
     		$data = ['code'=>-1,'msg'=>'error'];
     		return json_encode($data);
@@ -81,7 +70,6 @@ class Login extends Controller
      */
     private function loginSuccess($workerInfo)
     {
-        $workerInfo['status'] = 2;
         $this->setSession($workerInfo);
     }
     

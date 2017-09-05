@@ -7,7 +7,7 @@
 	{load href="/static/Css/bootstrap.min.css,/static/Js/jquery-1.11.1.min.js,/static/Js/bootstrap.min.js,/static/Js/jquery-1.12.1.min.js,/static/Js/jquery.slideunlock.js" /}
 	<link rel="stylesheet" type="text/css" href="/static/Css/login.css?v={$css_version}" />
 	<link rel="stylesheet" type="text/css" href="/static/Css/slide-unlock.css?v={$css_version}" />
-	<!-- <script type='text/javascript' src='/static/Js/login.js?v={$js_version}' ></script> -->
+	<script type='text/javascript' src='/static/Js/login.js?v={$js_version}' ></script>
 </head>
 <body>
 	<div class="bg">
@@ -35,8 +35,7 @@
     				</div>
 				</div>
 				<div class="form-group">
-					<!-- <input type="button" name="" value="登录" class="login"> -->
-					<input type="submit" name="submit" value="登录" class="login">
+					<input type="button" name="submit" value="登录" class="login_before" id="submit">
 				</div>
 			</form>
 		</div>
@@ -47,10 +46,43 @@
         var slider = new SliderUnlock("#slider",{
 				successLabelTip : "欢迎访问"	
 			},function(){
-				// alert("验证成功");
-            	// window.location.href="http://www.sucaijiayuan.com"
+				var account = $('#account').val();
+				var password = $('#password').val();
+				if(!account){
+					$('.account_null').show();
+					$('#account').css('border','1px red solid');
+					slider.init();
+					$('#labelTip').text('验证失败');
+					return;
+				}
+				if(!password){
+					$('.password_null').show();
+					$('#password').css('border','1px red solid');
+					slider.init();
+					$('#labelTip').text('验证失败');
+					return;
+				}
+            	$('#submit').attr('class','login_after');
         	});
         slider.init();
+   //      $('#submit').on('click',function(){
+   //      	if($(this).attr('class') != 'login_after'){
+   //      		return;
+   //      	}
+   //      	var account = $('#account').val();
+			// var password = $('#password').val();
+			// if(!account){
+			// 	$('.account_null').show();
+			// 	$('#account').css('border','1px red solid');
+			// 	$(this).attr('class','login_before');
+			// 	return;
+			// }
+			// if(!password){
+			// 	$('.password_null').show();
+			// 	$('#password').css('border','1px red solid');
+			// 	return;
+			// }
+   //      });
     })
 </script>
 </html>

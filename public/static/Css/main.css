@@ -1,0 +1,130 @@
+html{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 645px;
+	min-width: 1280px;
+}
+
+body{
+	width: 100%;
+	height: 100%;
+	min-height: 645px;
+	min-width: 1280px;
+	background:-webkit-linear-gradient(top right, #999, rgba(0,0,0,.075));
+	color: #fff;
+    background: -moz-linear-gradient(top right, #999, rgba(0,0,0,.075));
+    background: -webkit-gradient(linear, top right, #999, rgba(0,0,0,.075));
+    background: -o-linear-gradient(top right, #999, rgba(0,0,0,.075));
+    background: -ms-linear-gradient(top right, #999, rgba(0,0,0,.075));
+    background: linear-gradient(top right, #999, rgba(0,0,0,.075));
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#51E8FF', endColorstr='#2F88FF',GradientType=1 );
+}
+
+.head{
+	width: 100%;
+	height: 80px;
+	border-bottom: 1px #ccc solid;
+}
+
+.head_left{
+	width: 200px;
+	height: 80px;
+	background-color: #3b3a3f;
+	float: left;
+}
+
+.head_left img{
+	width: 41px;
+	height: 41px;
+	margin-top: 20px;
+	margin-left: 35px;
+}
+
+.head_left .title{
+	font-family: SourceHanSansCN-Medium;
+	font-size: 18px;
+	color: #fff;
+	letter-spacing: 0;
+	text-align: left;
+	float: right;
+	margin-right: 40px;
+	margin-top: 25px;
+}
+
+.head_middle{
+	width: calc(100% - 400px);
+	height: 80px;
+	display: inline-block;
+}
+
+.head_right{
+	width: 194px;
+	height: 80px;
+	display: inline-block;
+	float: right;
+	text-align: center;
+	line-height: 80px;
+}
+
+.head_middle .project_list{
+	/*margin-top: 38px;*/
+}
+
+.head_right .name{
+	margin-bottom: 10px;
+}
+
+.left{
+	width: 200px;
+	height: calc(100% - 80px);
+	background: #313135;
+	float: left;
+}
+
+.list-group{
+	margin-bottom: 0px;
+}
+
+.list-group img{
+	width: 30px;
+}
+
+.list-group-item-info{
+	padding-left: 40px;
+}
+
+.list-group-item-warning{
+	padding-left: 60px;
+}
+
+.list-group-item-hover{
+	/*background-color: #ccc;*/
+	color: #3c763d;
+	cursor: default;
+	text-align: 2px;
+	padding-left: 20px;
+}
+
+.list-group-item-success{
+	color: #fff;
+	background-color: #313135;
+}
+
+.list-group-item-active{
+	color: #53c3ff;
+}
+
+.project_list img{
+	width: 58px;
+}
+
+.list-group-item{
+	border: none;
+}
+
+.list-group-item-info{
+	color: #fff;
+	background-color: #313135;
+}
