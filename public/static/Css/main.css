@@ -44,13 +44,15 @@ body{
 
 .head_left .title{
 	font-family: SourceHanSansCN-Medium;
-	font-size: 18px;
+	font-size: 20px;
 	color: #fff;
 	letter-spacing: 0;
 	text-align: left;
 	float: right;
 	margin-right: 40px;
 	margin-top: 25px;
+	text-shadow: 3px 3px 2px;
+	font-style: oblique;
 }
 
 .head_middle{

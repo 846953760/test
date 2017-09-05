@@ -6,7 +6,7 @@ $(function(){
 		$(this).addClass('active');
 	});
 
-	$('.list-group-item').hover(function(){
+	$('.blog_left .list-group-item').hover(function(){
 		$(this).addClass('list-group-item-hover');
 		$(this).css('color','#3c763d');
 	},function(){
@@ -14,11 +14,11 @@ $(function(){
 		if(!$(this).hasClass('list-group-item-active')){
 			$(this).css('color','#fff');
 		}else{
-			$(this).css('color','#778dff');
+			$(this).css('color','#53c3ff');
 		}
 	});
 
-	$('.carousel').click(function(){
-		$('.carousel_list').toggle();
+	$('.blog_left .carousel').click(function(){
+		$('.blog_left .carousel_list').toggle();
 	});
 })
