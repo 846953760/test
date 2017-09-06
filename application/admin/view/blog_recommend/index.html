@@ -1,0 +1,15 @@
+{layout name="common/index" /}
+<script type="text/javascript">
+	$(function(){
+		$('.head_middle li').each(function(){
+			$(this).removeClass('active');
+		});
+		$('.head_middle .project_blog').addClass('active');
+		$('.blog_left .carousel_list').toggle();
+		$('.blog_left li span').each(function(){
+			$(this).removeClass('list-group-item-span-active');
+		});
+		$('.blog_left #blog_recommend').find('span').addClass('list-group-item-span-active');
+	})
+</script>
+<div>blogrecommend</div>

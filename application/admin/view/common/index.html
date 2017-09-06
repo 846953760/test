@@ -4,7 +4,7 @@
 	<title>项目管理</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	{load href="/static/Css/bootstrap.min.css,/static/Js/jquery-1.11.1.min.js,/static/Js/bootstrap.min.js" /}
+	{load href="/static/Css/animate.min.css,/static/Css/bootstrap.min.css,/static/Js/jquery-1.11.1.min.js,/static/Js/bootstrap.min.js" /}
 	<link rel="stylesheet" type="text/css" href="/static/Css/main.css?v={$css_version}" />
 	<script type='text/javascript' src='/static/Js/main.js?v={$js_version}' ></script>
 </head>
@@ -16,29 +16,30 @@
 		</div>
 		<div class="head_middle">
 			<ul class="nav nav-tabs project_list">
-			  <li role="presentation" class="active"><a href="javascript:"><img src="/static/Image/admin/person/m1.png"> <span>Blog</span></a></li>
-			  <li role="presentation"><a href="javascript:"><img src="/static/Image/admin/person/m5.png"> <span>Business</span></a></li>
-			  <li role="presentation"><a href="javascript:"><img src="/static/Image/admin/person/m2.png"> <span>Messages</span></a></li>
+			  <li role="presentation" class="project_blog active"><a href="javascript:"><img src="/static/Image/admin/person/m1.png"> <span>Blog</span></a></li>
+			  <li role="presentation" class="project_business"><a href="javascript:"><img src="/static/Image/admin/person/m5.png"> <span>Business</span></a></li>
+			  <li role="presentation" class="project_message"><a href="javascript:"><img src="/static/Image/admin/person/m2.png"> <span>Messages</span></a></li>
 			</ul>
 		</div>
 		<div class="head_right">
-			<span class="name">Welcome {$name}</span>
-			<span class="glyphicon glyphicon-log-in"></span>
+			<div style="float: left; cursor: default;"><span class="name">Welcome {$name}</span></div>
+			<div style="color: #fff;"><span class="glyphicon glyphicon-log-in"></span></div>
 		</div>
 	</div>
 	<div class="left">
-		<div class="blog_left">
+		<div class="blog_left animated bounceInLeft">
 			<ul class="list-group">
-				<li class="list-group-item list-group-item-active list-group-item-success"><img src="/static/Image/admin/face/h1.png"> <span>信息总览</span></li>
+				<li class="list-group-item list-group-item-success" id="blog_info"><img src="/static/Image/admin/face/h1.png"> <span class="list-group-item-span-active">信息总览</span></li>
 				<li class="list-group-item list-group-item-success carousel"><img src="/static/Image/admin/face/h2.png"> <span>轮播</span></li>
 					<ul class="list-group carousel_list" hidden>
-						<li class="list-group-item list-group-item-info"><img src="/static/Image/admin/face/h7.png"> <span>图片轮播</span></li>
-						<li class="list-group-item list-group-item-info"><img src="/static/Image/admin/face/h8.png"> <span>文章推荐</span></li>
+						<li class="list-group-item list-group-item-info" id="blog_carousel"><img src="/static/Image/admin/face/h7.png"> <span>图片轮播</span></li>
+						<li class="list-group-item list-group-item-info" id="blog_recommend"><img src="/static/Image/admin/face/h8.png"> <span>文章推荐</span></li>
 					</ul>
-				<li class="list-group-item list-group-item-success"><img src="/static/Image/admin/face/h3.png"> <span>说说</span></li>
-				<li class="list-group-item list-group-item-success"><img src="/static/Image/admin/face/h4.png"> <span>技术心得</span></li>
-				<li class="list-group-item list-group-item-success"><img src="/static/Image/admin/face/h5.png"> <span>留言管理</span></li>
-				<li class="list-group-item list-group-item-success"><img src="/static/Image/admin/face/h6.png"> <span>关于我</span></li>
+				<li class="list-group-item list-group-item-success" id="blog_say"><img src="/static/Image/admin/face/h3.png"> <span>说说</span></li>
+				<li class="list-group-item list-group-item-success" id="blog_experience"><img src="/static/Image/admin/face/h4.png"> <span>技术心得</span></li>
+				<li class="list-group-item list-group-item-success" id="blog_leaving"><img src="/static/Image/admin/face/h5.png"> <span>留言管理</span></li>
+				<li class="list-group-item list-group-item-success" id="blog_about"><img src="/static/Image/admin/face/h9.png"> <span>关于我</span></li>
+				<li class="list-group-item list-group-item-success" id="blog_recycle"><img src="/static/Image/admin/face/h6.png"> <span>回收站</span></li>
 			</ul>
 		</div>
 		<div class="business_left" style="display: none;"></div>
@@ -46,5 +47,6 @@
 	<div class="right">
 		{__CONTENT__}
 	</div>
+	<div class="bg" hidden></div>
 </body>
 </html>
