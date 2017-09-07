@@ -32,6 +32,13 @@ body{
 	z-index: 2;
 }
 
+/*.pagination{
+	float: right;
+	margin-right: 55px;
+	height: 30px;
+	margin-top: 60px;
+}*/
+
 .head{
 	width: 100%;
 	height: 80px;
@@ -168,13 +175,13 @@ tbody tr{
 	height: 45px;
 }
 
-.blog_say_content_page{
+/*.blog_say_content_page{
 	width: calc(100% - 200px);
 	height: auto;
 	float: right;
-}
+}*/
 
-.blog_add_new_blog{
+.blog_add_new_say{
 	background: #fff;
 	width: 60%;
 	height: 95%;
@@ -189,13 +196,13 @@ tbody tr{
 	overflow-y: auto;
 }
 
-.blog_add_new_blog .add_new_blog_head{
+.blog_add_new_say .add_new_blog_head{
 	background: #3b3a3f;
 	width: 100%;
 	height: 40px;
 }
 
-.blog_add_new_blog .add_new_blog_head .add_new_blog_head_title{
+.blog_add_new_say .add_new_blog_head .add_new_blog_head_title{
 	font-family: SourceHanSansCN-Medium;
 	font-size: 16px;
 	color: #fff;
@@ -208,7 +215,7 @@ tbody tr{
 	margin-left: 20px;
 }
 
-.blog_add_new_blog .add_new_blog_head .add_new_blog_head_off{
+.blog_add_new_say .add_new_blog_head .add_new_blog_head_off{
 	float: right;
 	width: 20px;
 	height: 20px;
@@ -235,8 +242,49 @@ tbody tr{
 	display: inline-block;
 }
 
-.blog_add_new_blog .add_new_blog_bottom{
+.blog_add_new_say .add_new_blog_bottom{
 	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
+}
+
+.blog_say_content .pagination{
+	width: 182px;
+	height: 35px;
+	text-align: center;
+	line-height: 32px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	left: 35%;
+}
+
+.blog_say_content .pagination div{
+	float: right;
+	width: 40px;
+	text-align: center;
+}
+
+.blog_say_content .pagination div a{
+	color: #fff;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.blog_say_content .pagination .active{
+	/*background-color: #fff;*/
+}
+
+.blog_say_content .pagination .active a{
+	color: #49a7ff;
+	background: none;
+	/*background-color: #fff;*/
+}
+
+.blog_say_content .pagination .before_page,.blog_say_content .pagination .before,.blog_say_content .pagination .after,.blog_say_content .pagination .curr,.blog_say_content .pagination .after_page{
+	width: 20px;
+}
+
+.blog_say_content .pagination div a:hover{
+	color: #49a7ff;
 }

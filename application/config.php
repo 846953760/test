@@ -9,6 +9,7 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 $db_business = require_once('database_business.php');
+$db_admin = require_once('database_admin.php');
 
 return [
     // +----------------------------------------------------------------------
@@ -242,4 +243,6 @@ return [
 
     //business数据库配置
     'db_business'   =>  $db_business,
+    //admin数据库配置
+    'db_admin'   =>  $db_admin,
 ];

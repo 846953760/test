@@ -9,6 +9,29 @@
 			$(this).removeClass('list-group-item-span-active');
 		});
 		$('.blog_left #blog_say').find('span').addClass('list-group-item-span-active');
+
+		var current_page = parseInt({$say_info->currentPage()|json_encode});
+		var before_page = current_page-1;
+		var after_page = current_page+1;
+		var total_page = {$say_info->lastPage()|json_encode};
+		$('.blog_say_content .pagination .last a').attr('href','?page='+total_page);
+		$('.blog_say_content .pagination .first a').attr('href','?page=1');
+		$('.blog_say_content .pagination .before_page a').attr('href','?page='+before_page);
+		$('.blog_say_content .pagination .before a').attr('href','?page='+before_page);
+		$('.blog_say_content .pagination .before a').text(before_page);
+		$('.blog_say_content .pagination .curr a').attr('href','?page='+current_page);
+		$('.blog_say_content .pagination .curr a').text(current_page);
+		$('.blog_say_content .pagination .after a').attr('href','?page='+after_page);
+		$('.blog_say_content .pagination .after a').text(after_page);
+		$('.blog_say_content .pagination .after_page a').attr('href','?page='+after_page);
+		if(before_page<=0){
+			$('.blog_say_content .pagination .before').css('display','none');
+			$('.blog_say_content .pagination .before_page').css('display','none');
+		}
+		if(after_page>total_page){
+			$('.blog_say_content .pagination .after').css('display','none');
+			$('.blog_say_content .pagination .after_page').css('display','none');
+		}
 	})
 </script>
 <div class="blog_say_content" style="color: #000;">
@@ -26,67 +49,46 @@
 				<tr>
 					<th>序号</th>
 					<th>标题</th>
-					<th>关键词</th>
 					<th>创建人</th>
 					<th>创建时间</th>
 					<th>显示</th>
-					<th>浏览数</th>
-					<th>点赞数</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="success">
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
+				{foreach name="say_info" item="list" key="key"}
+				<tr data-say-id={$list.say_id} class="success">
+					<td class="list_num animated bounceIn">{$key+1}</td>
+					<td class="list_say_title animated bounceIn">{$list.title}</td>
+					<td class="list_say_name animated bounceIn">{$list.name}</td>
+					<td class="list_say_create_time animated bounceIn">{$list.create_time}</td>
+					<td class="list_say_is_show animated bounceIn" data-is-show="{$list.is_show}">
+						{if condition="$list.is_show == 0"}
+						<div><span class="glyphicon glyphicon-ok" title="显示中"></span></div>
+						{else /}
+						<div><span class="glyphicon glyphicon-remove" title="不显示"></span></div>
+						{/if}
+					</td>
+					<td class="list_say_handle animated bounceIn">
+						<button class="btn btn-success btn-xs" type="button" title="查看"><span class="glyphicon glyphicon-eye-open"></span></button>
+						<button class="btn btn-info btn-xs" type="button" title="修改"><span class="glyphicon glyphicon-retweet"></span></button>
+						<button class="btn btn-danger btn-xs" type="button" title="删除"><span class="glyphicon glyphicon-trash"></span></button>
+					</td>
 				</tr>
-				<tr class="success">
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-				</tr>
-				<tr class="success">
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-				</tr>
-				<tr class="success">
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-					<td class="">1</td>
-				</tr>
+				{/foreach}
 			</tbody>
 		</table>
 	</div>
-	<div class="blog_say_content_page">
-		分页
+	<div class="blog_say_content_page pagination">
+		<div class="last"><a href="">末页</a></div>
+		<div class="after_page"><a href="">&gt;</a></div>
+		<div class="after"><a href=""></a></div>
+		<div class="curr active"><a href=""></a></div>
+		<div class="before"><a href=""></a></div>
+		<div class="before_page"><a href="">&lt;</a></div>
+		<div class="first"><a href="">首页</a></div>
 	</div>
-	<div class="blog_add_new_blog" hidden>
+	<div class="blog_add_new_say" hidden>
 		<div class="add_new_blog_head">
 			<div class="add_new_blog_head_title">添加说说</div>
 			<div class="add_new_blog_head_off"><img src="/static/Image/admin/person/off_glay.png"></div>
@@ -94,9 +96,9 @@
 		<div class="add_new_blog_content">
 			<div class="input-group">
 				<span class="input-group-addon" id="say_title">标题</span>
-				<input type="text" class="form-control" placeholder="*标题(20字符以内)" aria-describedby="say_title">
+				<input type="text" class="form-control" placeholder="*标题(20字符以内)" maxlength="20" aria-describedby="say_title">
 			</div>
-			<div class="input-group">
+			<!-- <div class="input-group">
 				<span class="input-group-addon" id="say_keyword">关键词</span>
 				<input type="text" class="form-control" placeholder="*关键词(最多三个，请以英文;隔开)" aria-describedby="say_keyword">
 			</div>
@@ -108,7 +110,7 @@
 				<label class="btn btn-primary btn-sm" style="margin-left:20px;">
 					<input type="radio" name="options" id="option2"> 否
 				</label>
-			</div>
+			</div> -->
 		</div>
 		<!-- <div style="height: 50px;padding-left: 5%;padding-top: 20px;border: 1px blue solid;"> -->
 			<!-- 加载编辑器的容器 -->
@@ -125,7 +127,7 @@
 					autoHeightEnabled: true,
 					autoFloatEnabled: true,
 					initialFrameWidth: 700,
-					initialFrameHeight: 500
+					initialFrameHeight: 300
 				});
 		    </script>
 		<!-- </div> -->

@@ -40,7 +40,8 @@ class Login extends Controller
             if(!$re){
                 $data = array('code'=>1,'msg'=>'账号不存在或者已被删除');
             }else{
-                $workerInfo = model('common/Worker','model')->loginByAccountAndPassword($account,$passwd);
+                // $workerInfo = model('common/Worker','model')->loginByAccountAndPassword($account,$passwd);
+                $workerInfo = model('common/Worker','model')->loginById6d($re['id6d']);
                 if(!$workerInfo){
                     $data = array('code'=>2,'msg'=>'密码错误');
                 }else{
