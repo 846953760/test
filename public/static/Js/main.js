@@ -6,6 +6,14 @@ $(function(){
 		$(this).addClass('active');
 	});
 
+	$('.head .head_right .glyphicon-log-in').click(function(){
+		var url = '/admin/Login/logout';
+		var data = {}
+		$.post(url,data,function(res){
+			window.location = '/admin/Login/index';
+		});
+	});
+
 	$('.head_left .title').hover(function(){
 		$(this).addClass('animated bounce');
 	},function(){
@@ -170,9 +178,52 @@ $(function(){
 					that.parent().parent().attr('data-is-show',1);
 				}else{
 					that.attr('class','glyphicon glyphicon-ok');
-					that.attr('title','显示');
+					that.attr('title','显示中');
 					that.parent().parent().attr('data-is-show',0);
 				}
+			}else{
+				alert(res.msg);
+			}
+		});
+	});
+
+	$('.blog_say_content .blog_say_content_list .list_say_handle .btn-danger').click(function(){
+		var say_id = $(this).parent().parent().attr('data-say-id');
+		$('.blog_say_content .blog_del_say .btn-warning').attr('data-say-id',say_id);
+		$('.bg').toggle();
+		$('.blog_say_content .blog_del_say').toggle();
+	});
+
+	$('.blog_say_content .blog_del_say .blog_del_say_head_off').hover(function(){
+		$(this).find('img').attr('src','/static/Image/admin/person/off_black.png');
+	},function(){
+		$(this).find('img').attr('src','/static/Image/admin/person/off_glay.png');
+	});
+
+	$('.blog_say_content .blog_del_say .blog_del_say_head_off').click(function(){
+		$('.bg').toggle();
+		$('.blog_say_content .blog_del_say').toggle();
+	});
+
+	$('.blog_say_content .blog_del_say .btn-primary').click(function(){
+		$('.bg').toggle();
+		$('.blog_say_content .blog_del_say').toggle();
+	});
+
+	$('.blog_say_content .blog_del_say .btn-warning').click(function(){
+		var say_id = $(this).attr('data-say-id');
+		var url = '/admin/Blog_Say/delSay';
+		var data = {
+			say_id: say_id
+		}
+		var that = $(this);
+		$.post(url,data,function(res){
+			if(res.code == 0){
+				$('.bg').toggle();
+				$('.blog_say_content .blog_del_say').toggle();
+				window.location = '/admin/Blog_Say/index';
+			}else{
+				alert(res.msg);
 			}
 		});
 	});

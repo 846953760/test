@@ -88,12 +88,9 @@ class Login extends Controller
      */
     public function logout()
     {
-        $w_id = Session('workerInfo')['w_id'];
-        $re = model('common/Worker','model')->setStatusByWid($w_id,1);
-        $redis = new \Kf_redis\Kf_redis();
-        $redis = $redis->Kf_redis();
-        $redis->del('kqadmin_'.$w_id.'_status');
-        return json_encode(array('code'=>0,'msg'=>'success'));
+        Session::set('workerInfo','');
+        $data = ['code'=>0,'msg'=>'success'];
+        return $data;
     }
 
     public function into()

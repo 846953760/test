@@ -15,7 +15,7 @@ class BlogSay extends Model
 
 	public function getBlogSayList()
 	{
-		$res_say_info = db('say')->alias('s')->join('blog_content c','s.say_id = c.content_id')->join('blog_worker w','c.worker_id = w.worker_id')->where(array('s.del_flag'=>0,'c.type'=>0))->order('update_time desc')->paginate(10);
+		$res_say_info = db('say')->alias('s')->join('blog_content c','s.say_id = c.content_id')->join('blog_worker w','c.worker_id = w.worker_id')->where(array('s.del_flag'=>0,'c.type'=>0))->order('create_time desc')->paginate(10);
 		return $res_say_info;
 	}
 
@@ -28,6 +28,12 @@ class BlogSay extends Model
 	public function editSayShow($say_id,$res_show)
 	{
 		$res = db('say')->where(array('say_id'=>$say_id,'del_flag'=>0))->update(array('is_show'=>$res_show));
+		return $res;
+	}
+
+	public function delSayBySayId($say_id)
+	{
+		$res = db('say')->where(array('say_id'=>$say_id,'del_flag'=>0))->update(array('del_flag'=>1));
 		return $res;
 	}
 }

@@ -63,4 +63,27 @@ class BlogSay extends Common
     		return $data;
 		}
 	}
+
+	public function delSay()
+	{
+		$request = request();
+		if($request->isPost()){
+			$say_id = $request->post('say_id','');
+			if($say_id == ''){
+				$data = ['code'=>1,'msg'=>'删除说说失败，请联系管理员'];
+    			return $data;
+			}
+			$res_del = model('common/BlogSay','model')->delSayBySayId($say_id);
+			if($res_del){
+				$data = ['code'=>0,'msg'=>'success'];
+    			return $data;
+			}else{
+				$data = ['code'=>2,'msg'=>'修改说说状态失败，请联系管理员'];
+    			return $data;
+			}
+		}else{
+			$data = ['code'=>-1,'msg'=>'error'];
+    		return $data;
+		}
+	}
 }
