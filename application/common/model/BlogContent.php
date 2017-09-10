@@ -18,4 +18,10 @@ class BlogContent extends Model
 		$re = db('content')->where(array('content_id'=>$content_id,'type'=>$type))->update(array('update_time'=>date('Y-m-d H:i:s')));
 		return $re;
 	}
+
+	public function editBlogContent($data)
+	{
+		$re = db('content')->where(array('content_id'=>$data['content_id'],'type'=>$data['type']))->update($data);
+		return $re;
+	}
 }

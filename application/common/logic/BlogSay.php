@@ -47,6 +47,22 @@ class BlogSay {
 		}else{
 			return false;
 		}
+	}
+
+	public function editBlogSay($say_id,$say_title,$say_content)
+	{
+		$res_say_info = model('common/BlogSay','model')->getSayInfoBySayId($say_id);
+		if($res_say_info){
+			$content_data['title'] = $say_title;
+			$content_data['content'] = $say_content;
+			$content_data['type'] = 0;
+			$content_data['content_id'] = $res_say_info['say_id'];
+			$content_data['update_time'] = date('Y-m-d H:i:s');
+			$res_content = model('common/BlogContent','model')->editBlogContent($content_data);
+			return $res_content;
+		}else{
+			return false;
+		}
 		
 	}
 }
