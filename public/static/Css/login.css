@@ -40,14 +40,16 @@ body{
 .theme{
 	float: left;
 	margin-top: 310px;
-	margin-left: 16px;
-	font-size: 16px;
+	margin-left: 5px;
+	font-size: 20px;
 	color: #fff;
 	letter-spacing: -0.57px;
 	text-align: left;
-	font-family:MicrosoftYaHei;
+	font-family: SourceHanSansCN-Medium;
 	width: 130px;
 	height: 25px;
+	text-shadow: 3px 3px 2px;
+	font-style: oblique;
 }
 
 .line{

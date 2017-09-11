@@ -373,10 +373,74 @@ $(function(){
 		if(blog_say_bitch_del_check.length <= 0){
 			alert('请先勾选要删除的序号');
 		}else{
-			console.log(blog_say_bitch_del_check);
+			$('.blog_say_content .blog_batch_del_say .blog_batch_del_say_buttom .btn-warning').attr('data-say-id',blog_say_bitch_del_check);
+			$('.bg').toggle();
+			$('.blog_say_content .blog_batch_del_say').toggle();
 		}
-		// 请求后台批量删除
-		// $('.bg').toggle();
-		// $('.blog_say_content .blog_batch_del_say').toggle();
+	});
+
+	$('.blog_say_content .blog_batch_del_say .blog_batch_del_say_head_off').hover(function(){
+		$(this).find('img').attr('src','/static/Image/admin/person/off_black.png');
+	},function(){
+		$(this).find('img').attr('src','/static/Image/admin/person/off_glay.png');
+	});
+
+	$('.blog_say_content .blog_batch_del_say .blog_batch_del_say_head_off').click(function(){
+		$('.bg').toggle();
+		$('.blog_say_content .blog_batch_del_say').toggle();
+	});
+
+	$('.blog_say_content .blog_batch_del_say_buttom .btn-primary').click(function(){
+		$('.bg').toggle();
+		$('.blog_say_content .blog_batch_del_say').toggle();
+	});
+
+	$('.blog_say_content .blog_batch_del_say_buttom .btn-warning').click(function(){
+		var say_id = $(this).attr('data-say-id');
+		var url = '/admin/Blog_Say/batchDelSay';
+		var data = {
+			say_id: say_id
+		}
+		$.post(url,data,function(res){
+			if(res.code == 0){
+				alert('删除说说成功');
+				$('.bg').toggle();
+				$('.blog_say_content .blog_batch_del_say').toggle();
+				window.location = '/admin/Blog_Say/index';
+			}else{
+				alert(res.msg);
+			}
+		});
+	});
+
+	$('.blog_about_content .blog_about_content_page .btn-primary').click(function(){
+		UE.getEditor('editor_about').setEnabled();
+		$('.blog_about_content .blog_about_content_page .btn-success').css('display','inline-block');
+	});
+
+	$('.blog_about_content .blog_about_content_page .btn-success').click(function(){
+		var url = '/admin/Blog_About/editAbout';
+		var has_content = UE.getEditor('editor_about').hasContents();
+		var edit_about_content = UE.getEditor('editor_about').getContent();
+		if(!has_content){
+			alert("请输入内容");
+		}
+		var data = {
+			about_content: edit_about_content
+		}
+		// 添加修改关于
+		$.post(url,data,function(res){
+			console.log(res);
+			// if(res.code == 0){
+			// 	alert('删除说说成功');
+			// 	$('.bg').toggle();
+			// 	$('.blog_say_content .blog_batch_del_say').toggle();
+			// 	window.location = '/admin/Blog_Say/index';
+			// }else{
+			// 	alert(res.msg);
+			// }
+		});
+		// UE.getEditor('editor_about').setDisabled('fullscreen');
+		// $(this).css('display','none');
 	});
 })

@@ -36,4 +36,10 @@ class BlogSay extends Model
 		$res = db('say')->where(array('say_id'=>$say_id,'del_flag'=>0))->update(array('del_flag'=>1));
 		return $res;
 	}
+
+	public function batchDelSayBySayId($say_id)
+	{
+		$res = db('say')->where('say_id','in',$say_id)->where(array('del_flag'=>0))->update(array('del_flag'=>1));
+		return $res;
+	}
 }

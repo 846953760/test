@@ -11,4 +11,26 @@
 		$('.blog_left #blog_about').find('span').addClass('list-group-item-span-active');
 	})
 </script>
-<div>blogabout</div>
+<div class="blog_about_content">
+	<div class="blog_about_content_list" style="min-height: 480px;">
+		<script id="editor_about" name="content" type="text/plain">
+	        请输入内容
+	    </script>
+	    <script type="text/javascript">
+			var ue = UE.getEditor( 'editor_about', {
+				autoHeightEnabled: true,
+				autoFloatEnabled: true,
+				initialFrameWidth: 700,
+				initialFrameHeight: 395
+			});
+			ue.addListener("ready", function () {
+				// editor准备好之后才可以使用
+				ue.setDisabled('fullscreen');
+			});
+	    </script>
+	</div>
+	<div class="blog_about_content_page">
+		<button class="btn btn-primary btn-sm">修改</button>
+		<button class="btn btn-success btn-sm" style="display: none;">保存</button>
+	</div>
+</div>

@@ -535,3 +535,26 @@ tbody tr{
 	margin-left: 370px;
 	width: 155px;
 }
+
+.blog_about_content_list{
+	width: calc(100% - 200px);
+	height: auto;
+	border: 1px #ccc solid;
+	float: right;
+}
+
+#editor_about{
+	padding-left: 20%;
+}
+
+.blog_about_content_page{
+	width: 182px;
+	height: auto;
+	text-align: center;
+	line-height: 32px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	left: 35%;
+	display: inline-block;
+}

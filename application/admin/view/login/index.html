@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
 <head>
 	<title>后台管理</title>
 	<meta charset="utf-8">
@@ -8,9 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="/static/Css/login.css?v={$css_version}" />
 	<link rel="stylesheet" type="text/css" href="/static/Css/slide-unlock.css?v={$css_version}" />
 	<script type='text/javascript' src='/static/Js/login.js?v={$js_version}' ></script>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 </head>
 <body>
-	<div class="bg">
+	<div class="bg" style="z-index: 2;">
 		<div class="logo"><img src="/static/Image/admin/person/m6.png"></div>
 		<div class="theme">管理后台系统</div>
 		<div class="line"></div>
@@ -40,6 +42,14 @@
 			</form>
 		</div>
 	</div>
+	<div class="container-1 demo-1">
+		<div class="content">
+			<div id="large-header" class="large-header">
+				<canvas id="demo-canvas"></canvas>
+			</div>
+		</div>
+	</div>
+	{load href="/static/Plugin/sideshow/css/normalize.css,/static/Plugin/sideshow/css/demo.css,/static/Plugin/sideshow/css/component.css,/static/Plugin/sideshow/js/TweenLite.min.js,/static/Plugin/sideshow/js/EasePack.min.js,/static/Plugin/sideshow/js/rAF.js,/static/Plugin/sideshow/js/demo-1.js" /}
 </body>
 <script>
     $(function () {
