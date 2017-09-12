@@ -41,6 +41,7 @@ CREATE TABLE `blog_about` (
  `content` text NOT NULL COMMENT '关于我内容',
  `is_show` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '0显示，1不显示',
  `create_time` datetime NOT NULL COMMENT '关于我创建的时间',
+ `update_time` datetime NOT NULL COMMENT '更新时间',
  `del_flag` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '0未删除，1已删除',
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='博客关于';
