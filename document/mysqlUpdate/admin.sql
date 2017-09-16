@@ -46,6 +46,8 @@ CREATE TABLE `blog_about` (
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='博客关于';
 
+INSERT INTO `blog`.`blog_about` (`id`, `title`, `content`, `is_show`, `create_time`, `update_time`, `del_flag`) VALUES ('1', '关于我', '关于我内容', '0', '2017-09-16 13:44:00', '2017-09-16 13:44:00', '0');
+
 
 DROP TABLE IF EXISTS `blog_leaving`;
 CREATE TABLE `blog_leaving` (

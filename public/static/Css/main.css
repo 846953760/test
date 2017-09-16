@@ -145,20 +145,20 @@ body{
 	background-color: #313135;
 }
 
-.blog_say_content_head{
+.blog_say_content_head,.blog_experience_content_head{
 	width: calc(100% - 200px);
 	height: 50px;
 	float: right;
 }
 
-.blog_say_content_list{
+.blog_say_content_list,.blog_experience_content_list{
 	width: calc(100% - 200px);
 	height: auto;
 	border: 1px #ccc solid;
 	float: right;
 }
 
-.blog_say_content .blog_say_content_head .blog_say_add,.blog_say_del{
+.blog_say_content .blog_say_content_head .blog_say_add,.blog_say_del,.blog_experience_content .blog_experience_content_head .blog_experience_add,.blog_experience_del{
 	float: right;
 	margin-right: 17px;
 	margin-top: 10px;
@@ -168,7 +168,7 @@ tbody tr{
 	height: 45px;
 }
 
-.blog_add_new_say{
+.blog_add_new_say,.blog_add_new_experience{
 	background: #fff;
 	width: 60%;
 	height: 95%;
@@ -183,13 +183,13 @@ tbody tr{
 	overflow-y: auto;
 }
 
-.blog_add_new_say .add_new_blog_head{
+.blog_add_new_say .add_new_blog_head,.blog_add_new_experience .add_new_blog_head{
 	background: #3b3a3f;
 	width: 100%;
 	height: 40px;
 }
 
-.blog_add_new_say .add_new_blog_head .add_new_blog_head_title{
+.blog_add_new_say .add_new_blog_head .add_new_blog_head_title,.blog_add_new_experience .add_new_blog_head .add_new_blog_head_title{
 	font-family: SourceHanSansCN-Medium;
 	font-size: 16px;
 	color: #fff;
@@ -202,7 +202,7 @@ tbody tr{
 	margin-left: 20px;
 }
 
-.blog_add_new_say .add_new_blog_head .add_new_blog_head_off{
+.blog_add_new_say .add_new_blog_head .add_new_blog_head_off,.blog_add_new_experience .add_new_blog_head .add_new_blog_head_off{
 	float: right;
 	width: 20px;
 	height: 20px;
@@ -222,20 +222,20 @@ tbody tr{
 	margin-top: 20px;
 }
 
-#editor{
+#editor,#editor_experience{
 	margin-left: 5%;
 	margin-top: 20px;
 	height: 500px;
 	display: inline-block;
 }
 
-.blog_add_new_say .add_new_blog_bottom{
+.blog_add_new_say .add_new_blog_bottom,.blog_add_new_experience .add_new_blog_bottom{
 	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 }
 
-.blog_say_content .pagination{
+.blog_say_content .pagination,.blog_experience_content .pagination{
 	width: 182px;
 	height: 35px;
 	text-align: center;
@@ -246,23 +246,19 @@ tbody tr{
 	left: 35%;
 }
 
-.blog_say_content .pagination div{
+.blog_say_content .pagination div,.blog_experience_content .pagination div{
 	float: right;
 	width: 40px;
 	text-align: center;
 }
 
-.blog_say_content .pagination div a{
+.blog_say_content .pagination div a,.blog_experience_content .pagination div a{
 	color: #fff;
 	font-size: 16px;
 	text-decoration: none;
 }
 
-.blog_say_content .pagination .active{
-	/*background-color: #fff;*/
-}
-
-.blog_say_content .pagination .active a{
+.blog_say_content .pagination .active a,.blog_experience_content .pagination .active a{
 	color: #49a7ff;
 	background: none;
 }
@@ -271,7 +267,11 @@ tbody tr{
 	width: 20px;
 }
 
-.blog_say_content .pagination div a:hover{
+.blog_experience_content .pagination .before_page,.blog_experience_content .pagination .before,.blog_experience_content .pagination .after,.blog_experience_content .pagination .curr,.blog_experience_content .pagination .after_page{
+	width: 20px;
+}
+
+.blog_say_content .pagination div a:hover,.blog_experience_content .pagination div a:hover{
 	color: #49a7ff;
 }
 
@@ -464,7 +464,7 @@ tbody tr{
 	text-align: center;
 }
 
-.blog_say_content .blog_say_content_list .check{
+.blog_say_content .blog_say_content_list .check,.blog_experience_content .blog_experience_content_list .check{
 	display: inline-block;
 	margin-right: 10px;
 	width: 15px;

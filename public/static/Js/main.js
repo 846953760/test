@@ -415,7 +415,16 @@ $(function(){
 
 	$('.blog_about_content .blog_about_content_page .btn-primary').click(function(){
 		UE.getEditor('editor_about').setEnabled();
+		$(this).css('display','none');
 		$('.blog_about_content .blog_about_content_page .btn-success').css('display','inline-block');
+		$('.blog_about_content .blog_about_content_page .btn-warning').css('display','inline-block');
+	});
+
+	$('.blog_about_content .blog_about_content_page .btn-warning').click(function(){
+		ue.setDisabled('fullscreen');
+		$(this).css('display','none');
+		$('.blog_about_content .blog_about_content_page .btn-primary').css('display','inline-block');
+		$('.blog_about_content .blog_about_content_page .btn-success').css('display','none');
 	});
 
 	$('.blog_about_content .blog_about_content_page .btn-success').click(function(){
@@ -428,19 +437,38 @@ $(function(){
 		var data = {
 			about_content: edit_about_content
 		}
-		// 添加修改关于
 		$.post(url,data,function(res){
-			console.log(res);
-			// if(res.code == 0){
-			// 	alert('删除说说成功');
-			// 	$('.bg').toggle();
-			// 	$('.blog_say_content .blog_batch_del_say').toggle();
-			// 	window.location = '/admin/Blog_Say/index';
-			// }else{
-			// 	alert(res.msg);
-			// }
+			if(res.code == 0){
+				alert('修改关于成功');
+				$('.bg').toggle();
+				window.location = '/admin/Blog_About/index';
+			}else{
+				alert(res.msg);
+			}
 		});
-		// UE.getEditor('editor_about').setDisabled('fullscreen');
-		// $(this).css('display','none');
+	});
+
+	$('.blog_experience_content .blog_experience_add').click(function(){
+		$('.bg').toggle();
+		$('.blog_experience_content .blog_add_new_experience').toggle();
+		$('#experience_title').next().val('');
+		UE.getEditor('editor_experience').setContent('请输入内容');
+		UE.getEditor('editor_experience').setHeight(300);
+	});
+
+	$('.blog_experience_content .blog_add_new_experience .add_new_blog_head_off').hover(function(){
+		$(this).find('img').attr('src','/static/Image/admin/person/off_black.png');
+	},function(){
+		$(this).find('img').attr('src','/static/Image/admin/person/off_glay.png');
+	});
+
+	$('.blog_experience_content .blog_add_new_experience .add_new_blog_head_off').click(function(){
+		$('.bg').toggle();
+		$('.blog_experience_content .blog_add_new_experience').toggle();
+	});
+
+	$('.blog_experience_content .blog_add_new_experience .add_new_blog_bottom .btn-warning').click(function(){
+		$('.bg').toggle();
+		$('.blog_experience_content .blog_add_new_experience').toggle();
 	});
 })

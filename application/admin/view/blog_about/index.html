@@ -24,13 +24,16 @@
 				initialFrameHeight: 395
 			});
 			ue.addListener("ready", function () {
+				var about_content = '{$about_content}';
 				// editor准备好之后才可以使用
 				ue.setDisabled('fullscreen');
+				UE.getEditor('editor_about').setContent(about_content);
 			});
 	    </script>
 	</div>
 	<div class="blog_about_content_page">
 		<button class="btn btn-primary btn-sm">修改</button>
 		<button class="btn btn-success btn-sm" style="display: none;">保存</button>
+		<button class="btn btn-warning btn-sm" style="display: none;">取消</button>
 	</div>
 </div>
